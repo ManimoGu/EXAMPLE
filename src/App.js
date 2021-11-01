@@ -6,32 +6,18 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Trailer from "./Trailer/Trailer";
 import React,{useEffect, useState} from 'react';
 import { MovieContext } from "./Contexte/Context";
-import Login from './Login/Login'
 import Dashboard from "./Dashboard/Dashboard";
-
-function App(props) {
-
-  const Page ='App';
-
-
-  const [Movies, setMovies] = useState(MovieContext);
-  const [CopieMovies,setCopieMovies] = useState(Movies);
+import SignIn from './Login/SignIn/SignIn'
+import SignUp from "./Login/SignUp/SignUp";
+import Reset from "./Login/Reset/Reset";
 
 
-  const FilterMovie = (text) =>{
 
-    if (text !== '') {
 
-      setMovies([...Movies.filter(movie => movie.title.toLowerCase().includes(text.toLowerCase()))]);
+function App() {
+  
 
-    } else {
-
-      setMovies([...CopieMovies]);
-
-    }  
-
-  }
-
+  
   return (
 
     
@@ -40,10 +26,8 @@ function App(props) {
 
 
     <div className="App">
-
-   
-
-    <NavBar name={Page} filterM = {FilterMovie}/>
+       
+    <NavBar/>
      
      <Switch>
      
@@ -51,11 +35,14 @@ function App(props) {
      <Route path='/MovieContent' component ={MovieContent}/>
      <Route path='/Trailer' component ={Trailer}/>
      <Route path='/Dashboard' component ={Dashboard}/>
+     <Route path='/SignIn' component ={SignIn}/>
+     <Route path='/SignUp' component ={SignUp}/>
+     <Route path="/ResetPassword" component={Reset}/>
     
 
      </Switch>
 
-      <Login/>
+     
 
     </div>
     

@@ -437,9 +437,7 @@ header {
 #my-cool-chart svg {
     width: 100%;
 }
-.sales .dropdown-menu > a:hover{
-    color: #5584FF;   
-}
+ 
 .shield-buttons {
     display: none;
 }
@@ -512,13 +510,7 @@ header {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 /*Main CSS*/
-
-
-
-
-
-
-@media only screen and (max-device-width: 767px) {
+ @media only screen and (max-device-width: 767px) {
     .login-logo img {
         margin: 0 auto;
     }

@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { MovieContext } from "../Contexte/Context";
-import Login from '../Login/Login'
 
 
-const NavBar = ({ name, filterM}) => {
-  const [Movies, setMovies] = useState(MovieContext);
-  const [show, setShow] = useState(false);
+
+
+const NavBar = ({ name, filterM,...props}) => {
+  
+
+  
+
 
   return (
     <div>
@@ -50,10 +52,12 @@ const NavBar = ({ name, filterM}) => {
                 </button>
               </div>
 
-              
-                  <button className="btn btn-warning" type='button' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                 <Link to="/SignIn">
+                  <button className="btn btn-warning" type='button' >
                     Sign-in <i className="fas fa-sign-in-alt"></i>
                   </button>
+
+                  </Link>
                    
                   
 
