@@ -27,18 +27,23 @@ function App() {
 
     <div className="App">
        
-    <NavBar/>
+    
      
      <Switch>
+
+     <Route path='/Dashboard' component ={Dashboard}/>
      
+      <div>
+      <NavBar/>
      <Route path='/' component={Home} exact/>
      <Route path='/MovieContent' component ={MovieContent}/>
      <Route path='/Trailer' component ={Trailer}/>
-     <Route path='/Dashboard' component ={Dashboard}/>
      <Route path='/SignIn' component ={SignIn}/>
      <Route path='/SignUp' component ={SignUp}/>
      <Route path="/ResetPassword" component={Reset}/>
+     </div>
     
+     
 
      </Switch>
 

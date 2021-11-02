@@ -1,8 +1,27 @@
-import React from "react";
+import React,{useRef} from "react";
 import './SignIn.css';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = ({users}) => {
+
+  const username = useRef();
+  const password = useRef();
+   const history = useHistory()
+
+
+  const redirecthistory = () =>{
+   
+    let url ="/Dashboard";
+    
+    history.push(url)
+     
+  }
+
+  
+
+  
   
   return (
     
@@ -19,12 +38,12 @@ const SignIn = () => {
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-warning"><i
                                             class="bi bi-person-plus-fill text-dark"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username"/>
+                                    <input type="text" class="form-control" ref= {username} placeholder="Username"/>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-warning"><i
                                             class="bi bi-key-fill text-dark"></i></span>
-                                    <input type="password" class="form-control" placeholder="password"/>
+                                    <input type="password" class="form-control" ref={password} placeholder="password"/>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
@@ -32,7 +51,11 @@ const SignIn = () => {
                                         Remember Me
                                     </label>
                                 </div>
-                                <button class="btn btn-warning text-center mt-2" type="submit">
+                                <button class="btn btn-warning text-center mt-2" onClick={()=>{
+
+                                   username.current.value ==="admin"&& password.current.value==="admin" ? redirecthistory() : alert("Wrong entries")
+
+                                }}>
                                     Login
                                 </button>
                                 <p class="text-center mt-5 text-light">Don't have an account?
@@ -52,4 +75,11 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+const UserList = connect (
+
+    (state) => ({users : state})
+
+)
+
+export default UserList(SignIn);
+

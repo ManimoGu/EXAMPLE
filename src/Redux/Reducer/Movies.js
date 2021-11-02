@@ -72,3 +72,19 @@ const FirstListMovies = [
 ]
 
 
+export const MovieReducer = (moviestate = FirstListMovies, action) =>{
+
+  switch(action.type){
+
+    case ADD_MOVIE : return [...moviestate, new movie(moviestate.length+1,action.payload.title,action.payload.Poster, action.payload.rating, action.payload.description, action.payload.dateOfRelease, action.payload.type, action.payload.actors, action.payload.trailer )];
+
+    case DELETE_MOVIE : return [...moviestate.filter(user => user.id !== action.payload.id)]
+
+
+    default : return moviestate;
+
+
+  }
+
+
+}
